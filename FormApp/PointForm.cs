@@ -67,6 +67,7 @@ namespace FormApp
                         break;
                     case ".json":
                         var jf = new JsonSerializer();
+                        jf.TypeNameHandling = TypeNameHandling.All;
                         using (var w = new StreamWriter(fs))
                             jf.Serialize(w, points);
                         break;
@@ -105,6 +106,7 @@ namespace FormApp
                         break;
                     case ".json":
                         var jf = new JsonSerializer();
+                        jf.TypeNameHandling = TypeNameHandling.All;
                         using (var r = new StreamReader(fs))
                             points = (Point[])jf.Deserialize(r, typeof(Point[]));
                         break;
